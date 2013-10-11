@@ -1,4 +1,4 @@
-#= require jquery-2.0.3
+#= require jquery-1.10.2
 #= require lodash-1.3.1
 #= require lodash.underscore-1.3.1
 #= require backbone-1.0.0

@@ -1,4 +1,6 @@
 <% content_for :title, 'MyView w/o Marionette' %>
+<%= javascript_include_tag 'old_back', 'data-turbolinks-track' => true %>
+<div id="content"></div>
 <script type="text/html" id="my-view-template">
   <div class="row">
     <label>First Name:</label>
@@ -13,4 +15,3 @@
     <span>{{email}}</span>
   </div>
 </script>
-<%= javascript_include_tag 'old_back', 'data-turbolinks-track' => true %>
