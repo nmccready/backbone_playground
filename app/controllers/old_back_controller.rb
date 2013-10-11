@@ -1,4 +1,4 @@
 class OldBackController < ApplicationController
-	def my_view
+	def my_views
 	end
 end

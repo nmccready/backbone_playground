@@ -1,3 +1,1 @@
-_.templateSettings =
-    interpolate: /\{\{\=(.+?)\}\}/g
-    evaluate: /\{\{(.+?)\}\}/g
+_.templateSettings = interpolate: /\{\{(.+?)\}\}/g

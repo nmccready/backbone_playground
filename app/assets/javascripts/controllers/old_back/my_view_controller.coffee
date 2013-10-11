@@ -9,7 +9,7 @@
             @myView.render()
             @
         replace: ()=>
-            $("#content").html @myView.el
+            $("#view1").html @myView.el
             @
 
 $(->
