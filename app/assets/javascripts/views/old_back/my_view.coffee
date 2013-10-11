@@ -1,8 +1,8 @@
 @namespace "views.old_back", ->
     class @MyView extends Backbone.View
-        constructor:(options) ->
+        constructor:(@templateId,options) ->
             super(options)
-            @template = $("#my-view-template").html()
+            @template = $("#"+templateId).html()
 
         render: =>
             # compile the Underscore.js template

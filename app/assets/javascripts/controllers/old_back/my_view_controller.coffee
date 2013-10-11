@@ -1,17 +1,13 @@
 @namespace "controllers.old_back", ->
     class @MyViewController extends foundation.BaseObject
-        constructor: (@person = new models.old_back.Person("Derick", "Bailey", "derickbailey@example.com")) ->
+        constructor: (@contentId,@templateId,@person = new models.old_back.Person("Derick", "Bailey", "derickbailey@example.com")) ->
             @
         initialize: ()=>
-            @myView = new views.old_back.MyView(model: @person)
+            @myView = new views.old_back.MyView(@templateId,model: @person)
             @
         render: ()=>
             @myView.render()
             @
         replace: ()=>
-            $("#view1").html @myView.el
+            $('#'+@contentId).html @myView.el
             @
-
-$(->
-    new controllers.old_back.MyViewController().initialize().render().replace()
-)
