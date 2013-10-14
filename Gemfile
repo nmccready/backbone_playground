@@ -19,5 +19,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 gem 'puma'
+gem 'haml'
+gem 'haml-rails', :group => :development
 gem 'debugger', group: [:development, :test]
 gem 'simplecov', :require => false, :group => :test
