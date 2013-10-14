@@ -1,4 +1,4 @@
-@namespace "controllers.new_back", ->
+@namespace "controllers.to_do_mvc", ->
     class @MyViewController extends Marionette.Controller
         constructor: (@region,@templateId,\
                       @viewFactory = views.new_back.MyView,

@@ -1,5 +1,5 @@
 #maybe rename to marionette?
 class NewBackController < ApplicationController
-    def my_views
+    def to_do_mvc
     end
 end
