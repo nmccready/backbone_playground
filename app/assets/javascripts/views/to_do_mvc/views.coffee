@@ -13,7 +13,7 @@
             #
             # Controls the rendering of the list of items, including the
             # filtering of active vs completed items for display.
-            Views.ListView = new views.to_do_mvc.ListView(Views.ItemView)
+            Views.ListView = views.to_do_mvc.ListView
 
             # Application Event Handlers
             # --------------------------

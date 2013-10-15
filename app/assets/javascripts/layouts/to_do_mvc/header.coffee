@@ -1,11 +1,12 @@
 @namespace "layouts.to_do_mvc", ->
-    class @Header extends Marionette.Layout
-        constructor:(@templateId = 'template-header',@inputId = 'new-todo') ->
+    class @Header extends Marionette.ItemView
+        constructor:(list,templateId = 'template-header',inputId = 'new-todo') ->
+            super(list)
             _.extend(@,utils.Backbone)
-            @template= @id(@templateId)
-            @ui= input: @id(@inputId)
+            @template= @id(templateId)
+            @ui= input: @id(inputId)
             @events=
-                "keypress #template-header" : "onInputKeypress"
+                'keypress #new-todo': 'onInputKeypress'
 
         onInputKeypress: (evt) ->
             ENTER_KEY = 13

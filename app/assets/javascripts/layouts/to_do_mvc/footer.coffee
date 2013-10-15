@@ -1,33 +1,39 @@
 @namespace "layouts.to_do_mvc", ->
     class @Footer extends Marionette.Layout
-        constructor:(@templateId = 'template-footer') ->
-            _.extend(@,$u_Bb)
+        constructor:(list,@app,@templateId = 'template-footer') ->
+            super(list)
+            _.extend(@,utils.Backbone)
             @template= @id(@templateId)
             @ui=
-                count: "#todo-count strong"
                 filters: "#filters a"
             @events=
-                "click #clear-completed": "onClearClick"
+                'click #clear-completed': 'onClearClick'
+
+        collectionEvents:
+            all: "render"
+
+        templateHelpers:
+            activeCountLabel: ->
+                ((if @activeCount is 1 then "item" else "items")) + " left"
 
         initialize: ->
-            @listenTo App.vent, "todoList:filter", @updateFilterSelection
-            @listenTo @collection, "all", @updateCount
+            @listenTo @app.vent, "todoList:filter", @updateFilterSelection, this
+
+        serializeData: ->
+            active = @collection.getActive().length
+            total = @collection.length
+            activeCount: active
+            totalCount: total
+            completedCount: total - active
 
         onRender: ->
-            @updateCount()
+            @$el.parent().toggle @collection.length > 0
+            @updateFilterSelection()
 
-        updateCount: ->
-            count = @collection.getActive().length
-            @ui.count.html count
-            if count is 0
-                @$el.parent().hide()
-            else
-                @$el.parent().show()
-
-        updateFilterSelection: (filter) ->
-            @ui.filters.removeClass("selected").filter("[href=\"#" + filter + "\"]").addClass "selected"
+        updateFilterSelection: ->
+            @ui.filters.removeClass("selected").filter("[href=\"" + (location.hash or "#") + "\"]").addClass "selected"
 
         onClearClick: ->
             completed = @collection.getCompleted()
-            completed.forEach destroy = (todo) ->
+            completed.forEach (todo) ->
                 todo.destroy()

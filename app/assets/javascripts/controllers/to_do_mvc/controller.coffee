@@ -13,11 +13,11 @@
             @app.header.show header
 
         showFooter: (todoList) =>
-            footer = new @app.Layout.Footer(collection: todoList)
+            footer = new @app.Layout.Footer(collection: todoList,@app)
             @app.footer.show footer
 
         showTodoList: (todoList) =>
-            @app.main.show new TodoList.Views.ListView(collection: todoList)
+            @app.main.show new @app.TodoList.Views.ListView(collection: todoList)
 
         filterItems: (filter) =>
-            @app.vent.trigger "todoList:filter", filter.trim() or ""
+            @app.vent.trigger "todoList:filter", filter.trim() or "" if filter?

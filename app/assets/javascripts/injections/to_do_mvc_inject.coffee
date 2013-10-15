@@ -11,6 +11,8 @@ TodoMVC.module "Layout", (Layout, App, Backbone, Marionette, $, _) ->
 
     Layout.Footer = layouts.to_do_mvc.Footer
 
+TodoMVC.module('TodoList.Views', views.to_do_mvc.Views)
+TodoMVC.module('Todos', models.to_do_mvc.Models)
 
 TodoMVC.module "TodoList", (TodoList, App, Backbone, Marionette, $, _) ->
 
@@ -27,12 +29,10 @@ TodoMVC.module "TodoList", (TodoList, App, Backbone, Marionette, $, _) ->
     # when the the application is started, pulling in all of the
     # existing Todo items and displaying them.
     TodoList.addInitializer ->
-        controller = new TodoList.Controller(TodoMVC,new App.Todos.TodoList())
+        controller = new TodoList.Controller(App,new App.Todos.TodoList())
         new TodoList.Router(controller: controller)
         controller.start()
 
-TodoMVC.module('TodoList.Views', views.to_do_mvc.Views)
-new models.to_do_mvc.Models(TodoMVC)
 $(->
     TodoMVC.start()
 )
