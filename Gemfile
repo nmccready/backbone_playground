@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
+gem 'handlebars_assets'
 
 group :doc do
   gem 'sdoc', require: false

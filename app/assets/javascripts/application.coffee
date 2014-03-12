@@ -1,3 +1,5 @@
+#= require handlebars
+#= require_tree ./views/templates
 #= require vendor
 #= require extensions/underscore.templateSettings
 #= require namespace

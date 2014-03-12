@@ -206,5 +206,5 @@
     };
 
     redirect();
-    getFile('learn.json', Learn);
+    getFile('http://localhost:4000/assets/json/learn.json', Learn);
 })();

@@ -5,4 +5,5 @@ BackbonePlayground::Application.routes.draw do
   get 'to_do_mvc/my_views' => 'to_do_mvc#my_views'
   get 'to_do_mvc' => 'to_do_mvc#index'
   get 'old_back/my_views' => 'old_back#my_views'
+  get 'new_back/my_views' => 'new_back#my_views'
 end
