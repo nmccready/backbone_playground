@@ -6,7 +6,5 @@
 
 
 @namespace "views.new_back", ->
-    class @MyView extends Marionette.ItemView
-        constructor: (@templateId, model) ->
-            super(model)
-            @template = HandlebarsTemplates['views/templates/my_view']
+views.new_back.MyView = Marionette.ItemView.extend
+    template: HandlebarsTemplates['views/templates/my_view']

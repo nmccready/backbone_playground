@@ -1,10 +1,8 @@
 @namespace "views.old_back", ->
-    class @MyView extends Backbone.View
-        constructor:(@templateId,options) ->
-            super(options)
-            @template = HandlebarsTemplates['views/templates/my_view']
+    @MyView = Backbone.View.extend
+        template: HandlebarsTemplates['views/templates/my_view']
 
-        render: =>
+        render: ->
             # render the template with the model data
             data = @model.toJSON()
             html = @template(data)
